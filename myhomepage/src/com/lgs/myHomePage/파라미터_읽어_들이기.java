@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Test_01
+ * Servlet implementation class 파라미터_읽어_들이기
  */
-@WebServlet("/Test_01")
-public class Test_01 extends HttpServlet {
+@WebServlet("/Parameter")
+public class 파라미터_읽어_들이기 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Test_01() {
+    public 파라미터_읽어_들이기() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,13 +29,20 @@ public class Test_01 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = response.getWriter(); 
-		out.print("<h1>1~10까지 출력</h1>");
-		for(int i = 1; i<=10; i++) 
-		{
-			out.print(i+"<br>");
-		}
+		response.setContentType("text/html");
+		PrintWriter out= response.getWriter();
+		out.print("<html>");
+		out.print("<head><title></title></head>");
+		out.print("<body>");
+		
+		String name = request.getParameter("name");
+		String age = request.getParameter("age");
+		
+		out.print("이름은"+name+"<br>");
+		out.print("나이는"+age+"<br>");
+		
+		out.print("</body>");
+		out.print("</html>");
 	}
 
 	/**

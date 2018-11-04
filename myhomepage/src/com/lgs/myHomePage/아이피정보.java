@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Test_01
+ * Servlet implementation class 아이피정보
  */
-@WebServlet("/Test_01")
-public class Test_01 extends HttpServlet {
+@WebServlet("/ipInfo")
+public class 아이피정보 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Test_01() {
+    public 아이피정보() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,13 +29,25 @@ public class Test_01 extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = response.getWriter(); 
-		out.print("<h1>1~10까지 출력</h1>");
-		for(int i = 1; i<=10; i++) 
-		{
-			out.print(i+"<br>");
-		}
+		response.setContentType("text/html");
+		PrintWriter out= response.getWriter();
+		out.println("<html>");
+		out.println("<head><title>info</title></head>");
+		out.println("<body>");
+
+		String uri = request.getRequestURI();
+		StringBuffer url = request.getRequestURL();
+		String contentPath = request.getContextPath();
+		String IP주소 = request.getRemoteAddr();
+		
+		
+		out.println("URI : " + uri + "<br>");
+		out.println("URL : " + url + "<br>");
+		out.println("contentPath : " + contentPath + "<br>");
+		out.println("remoteAddr : " + IP주소 + "<br>");
+		
+		out.println("</body>");
+		out.println("</html>");
 	}
 
 	/**
